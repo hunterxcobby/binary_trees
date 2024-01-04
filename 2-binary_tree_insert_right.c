@@ -32,7 +32,7 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 	rightnode->left = NULL;
 
 	/* Update pointers of existing nodes if parent already has a right child */
-	if (rightnode != NULL)
+	if (rightnode->right != NULL)
 	{
 		rightnode->right = parent->right;
 		parent->right->parent = rightnode;
