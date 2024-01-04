@@ -748,7 +748,3 @@ Properties of an AVL Tree:
 ---
 
 ## Author
-
-- <em>Website</em> - [Ayomide Kayode](https://github.com/AyomideKayode)
-- <em>ALX Software Engineering Program</em> - [ALX_AFRICA](https://www.alxafrica.com/programmes/)
-- <em>Twitter</em> - [@kazzy_wiz](https://www.twitter.com/kazzy_wiz)
