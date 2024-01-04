@@ -1,5 +1,6 @@
 # Ignore executable files
 *.out
+*-node
 
 # Ignore object files
 *.o
