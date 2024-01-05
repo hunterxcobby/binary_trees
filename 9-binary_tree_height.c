@@ -1,23 +1,26 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_postorder - Goes through a binary tree
- * using post-order traversal.
- * @tree: Pointer to the root node of the tree to traverse.
- * @func: Pointer to a function to call for each node.
+ * binary_tree_height - Measures the height of a binary tree.
+ * @tree: Pointer to the root node of the tree to measure the height.
+ *
+ * Return: Height of the tree, or 0 if tree is NULL.
  */
-void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
+size_t binary_tree_height(const binary_tree_t *tree)
 {
-	/* Check if tree or func is NULL, do nothing in such cases */
-	if (tree == NULL || func == NULL)
-		return;
+	/* Base case: if tree is NULL, return 0 */
+	if (tree == NULL)
+	{
+		return (0);
+	}
 
-	/* Recursively traverse the left subtree in post-order */
-	binary_tree_postorder(tree->left, func);
+	/* Recursive case: calculate the height of left and right subtrees */
+	size_t left_height = binary_tree_height(tree->left);
+	size_t right_height = binary_tree_height(tree->right);
 
-	/* Recursively traverse the right subtree in post-order */
-	binary_tree_postorder(tree->right, func);
-
-	/* Call the function on the data of the current node */
-	func(tree->n);
+	/**
+     * Return the maximum height of left and right subtrees,
+     *plus 1 for the current node
+     */
+	return ((left_height > right_height ? left_height : right_height) + 1);
 }
