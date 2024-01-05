@@ -2,28 +2,25 @@
 #include "14-binary_tree_balance.c"
 
 /**
- * binary_tree_is_perfect - Checks if a binary tree is perfect.
- * @tree: Pointer to the root node of the tree to check.
+ * binary_tree_is_perfect - Checks if a binary tree is perfect
+ * @tree: Pointer to the root node of the tree
  *
- * Return: 1 if the tree is perfect, 0 if tree is NULL or not perfect.
+ * Return: 1 if the tree is perfect, 0 otherwise
  */
+
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int left_height, right_height;
+	int is_perfect = 0;
 
-	/* Base case: if tree is NULL, it is not perfect */
-	if (tree == NULL)
-		return (0);
-
-	/* Calculate the height of the left and right subtrees */
-	left_height = binary_tree_height(tree->left);
-	right_height = binary_tree_height(tree->right);
-
-	/* Check if the subtrees are perfect and have the same height */
-	if (binary_tree_is_perfect(tree->left) &&
-			binary_tree_is_perfect(tree->right) &&
-			left_height == right_height)
-		return (1);
-
-	return (0);
+	if (tree)
+	{
+		is_perfect = 1;
+		if (binary_tree_balance(tree) != 0)
+			return (0);
+		if (tree->left)
+			is_perfect *= binary_tree_is_perfect(tree->left);
+		if (tree->right)
+			is_perfect *= binary_tree_is_perfect(tree->right);
+	}
+	return (is_perfect);
 }
